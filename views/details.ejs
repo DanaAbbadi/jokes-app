@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main>
+        <section>
+            <% data.forEach((item,ind) =>{ %>
+
+                <div>
+                    <ul>
+                        <li>
+                            <p>JOKE #<%= ind %></p>
+                            <p><%= item.typej %></p>
+                            <p><%= item.setup %></p>
+                            <p><%= item.punchline %></p>
+
+                        </li>
+
+                    </ul>
+                    <form id="deleteForm" action="/delete/<%= item.id%> ?_method=delete" method="post">
+                        <button type="submit">delete</button>
+                    </form>
+
+                    <button class="updateButton">Update</button>
+                    <form class="updateForm" action="/update/<%= item.id%> ?_method=put" method="post">
+                        <input type="text" name="typej" value="<%= item.typej %>"> <br>
+                        <input type="text" name="setup" value="<%= item.setup %>"> <br>
+                        <input type="text" name="punchline" value="<%= item.punchline %>"> <br>
+                        <button type="submit">Update</button>
+                    </form>
+
+
+                </div>
+
+
+            <% }) %>
+        </section>
+        <!-- <scrip src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+            <script src="jquery-3.5.1.min.js"></script>
+
+        <script src="/app.js"></script>
+    </main>
+</body>
+</html>

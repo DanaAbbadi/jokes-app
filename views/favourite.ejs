@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+    <main>
+        <section id="alljokes">
+            <% if(fav.length>0){ %>
+            <% fav.forEach((item,ind) =>{ %>
+
+                <div>
+                    <ul>
+                        <li>
+                            <p>JOKE #<%= ind %></p>
+                            <p><%= item.typej %></p>
+                            <p><%= item.setup %></p>
+                            <p><%= item.punchline %></p>
+
+                        </li>
+
+                    </ul>
+                    <form action="/details/<%= item.id%>" method="post">
+                        <button type="submit">view details</button>
+                    </form>
+
+
+                </div>
+
+
+            <% })} %>
+            <% if(fav.length == 0){ %>
+                <p>No Available Jokes</p>
+                <% } %>
+
+        </section>
+    </main>
+</body>
+</html>

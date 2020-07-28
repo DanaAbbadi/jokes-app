@@ -1,0 +1,14 @@
+
+#alljokes{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#alljokes div{
+    border: 5px solid black;
+    width: 30%;
+    height: 250px;
+    margin-left: 2%;
+    margin: 1% 2% 1% 0;
+}
+

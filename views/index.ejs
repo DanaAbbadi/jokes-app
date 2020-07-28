@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index">home</a>
+            <a href="/favjokes">favourite</a>
+            <a href="/rand">random</a>
+
+        </nav>
+    </header>
+    <main>
+        <section id="alljokes">
+            <% alljokes.forEach((item,ind) =>{ %>
+
+                <div>
+                    <ul>
+                        <li>
+                            <p>JOKE #<%= ind +1 %></p>
+                            <p><%= item.type %></p>
+                            <p><%= item.setup %></p>
+                            <p><%= item.punchline %></p>
+
+                        </li>
+
+                    </ul>
+                    <form action="/fav" method="post">
+                        <input type="text" name="type" value="<%= item.type %>" style="display: none;">
+                        <input type="text" name="setup" value="<%= item.setup %>" style="display: none;">
+                        <input type="text" name="punchline" value="<%= item.punchline %>" style="display: none;">
+
+
+                        <button type="submit">Add to favourite</button>
+                    </form>
+
+
+                </div>
+
+
+            <% }) %>
+        </section>
+    </main>
+</body>
+</html>
